@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+  <title>Snek Game</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+  <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+</head>
+<body>
+  <!--form class="nameForm">
+    <label>Enter name: <input class="nameInput" type="text"></label>
+    <input type="submit">
+  </form-->
+  <div class="game">
+    <div class="snek">
+      <p class="snekName"></p>
+    </div>
+  </div>
+  <script>
+    var socket = io.connect('http://localhost:8080');
+    /*$('.nameForm').submit(function(event) {
+      event.preventDefault();
+
+      $('.snek').css({
+        top: event.pageY - 8,
+        left: event.pageX - 500
+      })
+
+      $('.snekName').text($('.nameInput').val());
+    }); */
+    $('.game').mousemove(function(event) {
+      var pos = {
+        x: event.pageX,
+        y: event.pageY
+      }
+
+      socket.emit('snekMoves', pos);
+    });
+
+
+  </script>
+</body>
+</html>
