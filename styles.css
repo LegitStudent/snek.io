@@ -1,0 +1,22 @@
+.game {
+  height: 840px;
+  width: 900px;
+  border: 2px black solid;
+  margin: 0 auto;
+  position: relative;
+  cursor: none;
+}
+
+.snek {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-image: url(snek.png);
+  background-size: 80px 80px;
+  top: 0;
+  left: 0;
+}
+
+.snekName {
+  margin-top: 70px;
+}
